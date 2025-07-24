@@ -1,0 +1,30 @@
+<h2>Brand List</h2>
+
+<a routerLink="/brands/add">
+  <button class="add-btn">➕ Thêm Brand</button>
+</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tên</th>
+      <th>Logo</th>
+      <th>Mô tả</th>
+      <th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let brand of brands">
+      <td>{{ brand.id }}</td>
+      <td>{{ brand.name }}</td>
+      <td>
+        <img [src]="brand.logo" alt="{{ brand.name }}" width="50" />
+      </td>
+      <td>{{ brand.description }}</td>
+      <td>
+        <button (click)="deleteBrand(brand.id)" class="delete-btn">🗑 Xóa</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

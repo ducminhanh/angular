@@ -1,0 +1,14 @@
+<h2>Thêm danh mục mới</h2>
+
+<form (ngSubmit)="addCategory()">
+  <label>Tên danh mục:</label>
+  <input [(ngModel)]="category.name" name="name" required />
+
+  <label>Ảnh (VD: books.jpg):</label>
+  <input [(ngModel)]="category.image" name="image" required />
+
+  <label>Mô tả:</label>
+  <textarea [(ngModel)]="category.description" name="description"></textarea>
+
+  <button type="submit">Thêm danh mục</button>
+</form>

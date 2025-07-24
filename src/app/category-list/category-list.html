@@ -1,0 +1,29 @@
+<h2>Danh sách danh mục</h2>
+
+<!-- Nút thêm ở phía trên bảng -->
+<a routerLink="/categories/add">
+  <button class="add-btn">➕ Thêm danh mục</button>
+</a>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tên</th>
+      <th>Ảnh</th>
+      <th>Mô tả</th>
+      <th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let category of categories">
+      <td>{{ category.id }}</td>
+      <td>{{ category.name }}</td>
+      <td><img [src]="'assets/' + category.image" width="80" /></td>
+      <td>{{ category.description }}</td>
+      <td>
+        <button class="delete-btn" (click)="deleteCategory(category.id)">❌ Xóa</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

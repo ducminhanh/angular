@@ -1,0 +1,17 @@
+<h2>Add Product</h2>
+
+<form (ngSubmit)="saveProduct()">
+  <label>Name:</label>
+  <input [(ngModel)]="product.name" name="name" required />
+
+  <label>Price:</label>
+  <input [(ngModel)]="product.price" name="price" type="number" required />
+
+  <label>Image filename (in /assets):</label>
+  <input [(ngModel)]="product.image" name="image" required />
+
+  <label>Description:</label>
+  <textarea [(ngModel)]="product.description" name="description" required></textarea>
+
+  <button type="submit">Save</button>
+</form>

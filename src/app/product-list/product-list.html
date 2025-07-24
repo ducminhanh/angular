@@ -1,0 +1,38 @@
+<h2>Danh sách sản phẩm</h2>
+
+<input [(ngModel)]="filterText" placeholder="Lọc theo tên..." />
+
+<a routerLink="/products/add">
+  <button>Thêm sản phẩm</button>
+</a>
+
+<table *ngIf="filteredProducts.length > 0; else noProducts">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tên</th>
+      <th>Giá</th>
+      <th>Ảnh</th>
+      <th>Mô tả</th>
+      <th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of filteredProducts">
+      <td>
+        <a [routerLink]="['/product', product.id, 'detail']">{{ product.id }}</a>
+      </td>
+      <td>{{ product.name | uppercase }}</td>
+      <td>{{ product.price | currency:'VND' }}</td>
+      <td><img [src]="'assets/' + product.image" alt="" width="80" /></td>
+      <td>{{ product.description }}</td>
+      <td>
+        <button (click)="deleteProduct(product.id)">Xoá</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #noProducts>
+  <p>Không có sản phẩm nào.</p>
+</ng-template>

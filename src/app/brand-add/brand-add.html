@@ -1,0 +1,17 @@
+<h2>Thêm Brand mới</h2>
+
+<form (ngSubmit)="addBrand()">
+  <label for="id">ID:</label>
+  <input type="number" [(ngModel)]="brand.id" name="id" required />
+
+  <label for="name">Tên Brand:</label>
+  <input type="text" [(ngModel)]="brand.name" name="name" required />
+
+  <label for="logo">Link Logo:</label>
+  <input type="text" [(ngModel)]="brand.logo" name="logo" required />
+
+  <label for="description">Mô tả:</label>
+  <textarea [(ngModel)]="brand.description" name="description" required></textarea>
+
+  <button type="submit">Thêm Brand</button>
+</form>
